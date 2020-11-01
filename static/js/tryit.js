@@ -288,6 +288,7 @@ $(document).ready(function () {
     $("#tryit_accept").css("display", "none");
     $("#tryit_progress").css("display", "inherit");
     $("#uname-box").css("display", "none");
+    var uname = document.getElementById("uname-box").value;
 
     $.ajax({
       url:
@@ -295,7 +296,8 @@ $(document).ready(function () {
         tryit_server +
         "/1.0/start?terms=" +
         tryit_terms_hash +
-        "&name=XYZ",
+        "&name=" +
+        uname,
     }).then(function (data) {
       if (data.status && data.status != 0) {
         if (data.status == 1) {
