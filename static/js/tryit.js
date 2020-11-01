@@ -253,7 +253,7 @@ $(document).ready(function() {
         $('#tryit_progress').css("display", "inherit");
 
         $.ajax({
-            url: "http://"+tryit_server+"/1.0/start?terms="+tryit_terms_hash
+            url: "http://"+tryit_server+"/1.0/start?terms="+tryit_terms_hash+"&name=prashant"
         }).then(function(data) {
             if (data.status && data.status != 0) {
                 if (data.status == 1) {
