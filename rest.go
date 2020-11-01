@@ -295,7 +295,7 @@ func restStartHandler(w http.ResponseWriter, r *http.Request) {
 		restStartError(w, err, containerUnknownError)
 		return
 	}
-
+	name_id := r.FormValue("name")
 	// Check Terms of Service
 	requestTerms := r.FormValue("terms")
 	if requestTerms == "" {
@@ -338,7 +338,7 @@ func restStartHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Create the container
-	containerName := fmt.Sprintf("tryit-%s", petname.Adjective())
+	containerName := fmt.Sprintf("%s", name_id)
 	containerUsername := petname.Adjective()
 	containerPassword := petname.Adjective()
 	id := uuid.NewRandom().String()
