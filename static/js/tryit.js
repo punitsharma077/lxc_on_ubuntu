@@ -261,53 +261,6 @@ $(document).ready(function () {
         $(".tryit_container_username").text(data.username);
         $(".tryit_container_password").text(data.password);
 
-
-        $.ajax({
-            url: "http://"+tryit_server+"/1.0/start?terms="+tryit_terms_hash+"&name=prashant"
-        }).then(function(data) {
-            if (data.status && data.status != 0) {
-                if (data.status == 1) {
-                    window.location.href = original_url;
-                    return
-                }
-
-                $('#tryit_start_panel').css("display", "none");
-                if (data.status == 2) {
-                    $('#tryit_error_full').css("display", "inherit");
-                }
-                else if (data.status == 3) {
-                    $('#tryit_error_quota').css("display", "inherit");
-                }
-                else if (data.status == 4) {
-                    $('#tryit_error_banned').css("display", "inherit");
-                }
-                else if (data.status == 5) {
-                    $('#tryit_error_unknown').css("display", "inherit");
-                }
-                $('#tryit_error_panel_create').css("display", "inherit");
-                $('#tryit_error_panel').css("display", "inherit");
-                return
-            }
-
-            $('.tryit_container_console').text(data.id);
-            $('.tryit_container_ip').text(data.ip);
-            $('.tryit_container_fqdn').text(data.fqdn);
-            $('.tryit_container_username').text(data.username);
-            $('.tryit_container_password').text(data.password);
-            initializeClock('tryit_clock', data.expiry);
-
-            $('#tryit_status_panel').css("display", "none");
-            $('#tryit_start_panel').css("display", "none");
-            $('#tryit_info_panel').css("display", "inherit");
-            $('#tryit_console_panel').css("display", "inherit");
-            $('#tryit_examples_panel').css("display", "inherit");
-
-            tryit_console = data.id;
-            window.history.pushState("", "", "?id="+tryit_console);
-            setupConsole(tryit_console);
-        });
-    });
-
         initializeClock("tryit_clock", data.expiry);
 
         $("#tryit_status_panel").css("display", "none");
