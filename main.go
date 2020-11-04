@@ -146,8 +146,8 @@ func run() error {
 				fmt.Printf("Inotify error: %s\n", err)
 			}
 		}
-	}()
-
+	}() 
+ 
 	// Connect to the LXD daemon
 	warning := false
 	for {
@@ -209,6 +209,7 @@ func run() error {
 	r.HandleFunc("/1.0/start", restStartHandler)
 	r.HandleFunc("/1.0/statistics", restStatisticsHandler)
 	r.HandleFunc("/1.0/terms", restTermsHandler)
+	r.HandleFunc("/1.0/email", restEmailHandler)
 
 	err = http.ListenAndServe(config.ServerAddr, r)
 	if err != nil {
