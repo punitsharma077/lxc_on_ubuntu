@@ -207,134 +207,122 @@
                         <span aria-hidden="true" class="glyphicon glyphicon-repeat"></span>
                         Reconnect
                     </button>
-                    <div style="text-align: center;">
-                        <button class="btn btn-default btn-lg" id="cmd_history" type="button">
-                            <span aria-hidden="true" class="glyphicon"></span>
-                            See command history
-                        </button>
-                    </div>
                     <br>
-                    <div style="text-align: center; display: none;" id="cmd-display-box">
-                        <textarea id="cmd-display" style="width:200px;height:1000px;resize: none;"></textarea>
-                    </div>
-
-                    </div>
                 </div>
-
-                <div class="panel panel-danger" id="tryit_error_panel" style="display:none">
-                    <div class="panel-heading" id="tryit_error_panel_create" style="display:none">Unable to create a new
-                        container</div>
-                    <div class="panel-heading" id="tryit_error_panel_access" style="display:none">Unable to access the
-                        container</div>
-
-                    <div class="panel-body" id="tryit_error_full" style="display:none">
-                        The server is currently full, please try again in a few minutes.
-
-                        <br /><br />
-
-                        <button class="btn btn-default btn-lg tryit_goback" type="button">
-                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
-                            Start over
-                        </button>
-                    </div>
-
-                    <div class="panel-body" id="tryit_error_quota" style="display:none">
-                        You have reached the maximum number of concurrent sessions,
-                        please wait for some to expire before starting more of them.
-
-                        <br /><br />
-
-                        <button class="btn btn-default btn-lg tryit_goback" type="button">
-                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
-                            Start over
-                        </button>
-                    </div>
-
-                    <div class="panel-body" id="tryit_error_banned" style="display:none">
-                        You have been banned from this service due to a failure to
-                        respect the terms of service.
-                    </div>
-
-                    <div class="panel-body" id="tryit_error_unknown" style="display:none">
-                        An unknown error occured. Please try again in a few minutes.
-
-                        <br /><br />
-
-                        <button class="btn btn-default btn-lg tryit_goback" type="button">
-                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
-                            Start over
-                        </button>
-                    </div>
-
-                    <div class="panel-body" id="tryit_error_missing" style="display:none">
-                        The container you're trying to connect to doesn't exist anymore.
-
-                        <br /><br />
-
-                        <button class="btn btn-default btn-lg tryit_goback" type="button">
-                            <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
-                            Start over
-                        </button>
-                    </div>
-                </div>
-
-                <script src="/static/js/jquery.min.js"></script>
-                <script src="/static/js/bootstrap.min.js"></script>
             </div>
-            <!-- =================================================================================================================================== -->
+
+            <div class="panel panel-danger" id="tryit_error_panel" style="display:none">
+                <div class="panel-heading" id="tryit_error_panel_create" style="display:none">Unable to create a new
+                    container</div>
+                <div class="panel-heading" id="tryit_error_panel_access" style="display:none">Unable to access the
+                    container</div>
+
+                <div class="panel-body" id="tryit_error_full" style="display:none">
+                    The server is currently full, please try again in a few minutes.
+
+                    <br /><br />
+
+                    <button class="btn btn-default btn-lg tryit_goback" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        Start over
+                    </button>
+                </div>
+
+                <div class="panel-body" id="tryit_error_quota" style="display:none">
+                    You have reached the maximum number of concurrent sessions,
+                    please wait for some to expire before starting more of them.
+
+                    <br /><br />
+
+                    <button class="btn btn-default btn-lg tryit_goback" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        Start over
+                    </button>
+                </div>
+
+                <div class="panel-body" id="tryit_error_banned" style="display:none">
+                    You have been banned from this service due to a failure to
+                    respect the terms of service.
+                </div>
+
+                <div class="panel-body" id="tryit_error_unknown" style="display:none">
+                    An unknown error occured. Please try again in a few minutes.
+
+                    <br /><br />
+
+                    <button class="btn btn-default btn-lg tryit_goback" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        Start over
+                    </button>
+                </div>
+
+                <div class="panel-body" id="tryit_error_missing" style="display:none">
+                    The container you're trying to connect to doesn't exist anymore.
+
+                    <br /><br />
+
+                    <button class="btn btn-default btn-lg tryit_goback" type="button">
+                        <span aria-hidden="true" class="glyphicon glyphicon-home"></span>
+                        Start over
+                    </button>
+                </div>
+            </div>
+
+            <script src="/static/js/jquery.min.js"></script>
+            <script src="/static/js/bootstrap.min.js"></script>
+        </div>
+        <!-- =================================================================================================================================== -->
 
 
 
 
-        </div> <!-- content div -->
+    </div> <!-- content div -->
 
-        <footer id="footer">
-            <div class="footer-top" id="contact">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6">
-                            <h4>Community Links</h4>
-                            <p>
-                                <a href="http://www.sakshat.ac.in/">Sakshat Portal</a>
-                            </p>
-                            <p>
-                                <a href="http://outreach.vlabs.ac.in/">Outreach Portal</a>
-                            </p>
-                            <p>
-                                <a href="http://vlab.co.in/faq">FAQ : Virtual Labs</a>
-                            </p>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <h4>Contact Us</h4>
-                            <p> <strong>Phone:</strong> General Information : 011-26582050 </p>
-                            <p> <strong>Email:</strong> support@vlab.co.in </p>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <h4>Follow Us</h4>
-                            <div class="social-links">
-                                <a class="twitter" href="https://twitter.com/TheVirtualLabs"
-                                    style="background: #55acee;">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                                <a class="facebook"
-                                    href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/"
-                                    style="background: #3b5998;">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a class="google-plus" href="https://www.youtube.com/watch?v=asxRaOgk6a0"
-                                    style="background: #e52d27;">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                                <a class="linkedin" href="https://in.linkedin.com/in/virtual-labs-008ba9136"
-                                    style="background: #2867B2;">
-                                    <i class="fa fa-linkedin"></i>
-                                </a>
-                            </div>
+    <footer id="footer">
+        <div class="footer-top" id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <h4>Community Links</h4>
+                        <p>
+                            <a href="http://www.sakshat.ac.in/">Sakshat Portal</a>
+                        </p>
+                        <p>
+                            <a href="http://outreach.vlabs.ac.in/">Outreach Portal</a>
+                        </p>
+                        <p>
+                            <a href="http://vlab.co.in/faq">FAQ : Virtual Labs</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h4>Contact Us</h4>
+                        <p> <strong>Phone:</strong> General Information : 011-26582050 </p>
+                        <p> <strong>Email:</strong> support@vlab.co.in </p>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a class="twitter" href="https://twitter.com/TheVirtualLabs" style="background: #55acee;">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a class="facebook" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/"
+                                style="background: #3b5998;">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a class="google-plus" href="https://www.youtube.com/watch?v=asxRaOgk6a0"
+                                style="background: #e52d27;">
+                                <i class="fa fa-youtube"></i>
+                            </a>
+                            <a class="linkedin" href="https://in.linkedin.com/in/virtual-labs-008ba9136"
+                                style="background: #2867B2;">
+                                <i class="fa fa-linkedin"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
     </div> <!-- top div -->
     <script src="js/jquery.js"></script>
@@ -358,7 +346,7 @@
                     "<img src='css/left-arrow.png'>",
                     "<img src='css/right-arrow.png'>"
                 ],
-                /* autoPlay : 3000,
+                /* autoPlay : 3000, 
                 stopOnHover : true */
             });
 
@@ -389,4 +377,5 @@
 
 
 </body>
+
 </html>
