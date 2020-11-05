@@ -124,23 +124,28 @@ $(document).ready(function () {
       };
 
       sock.onclose = function (msg) {
-        // console.log(cmds);
-        // console.log(allinpt);
+        var uname = document.getElementById("uname-box").value;
+        var cmdstr = "";
+        for (i = 0; i < cmds.length; i++) {
+          cmdstr += cmds[i] + "%0A";
+        }
+        $.ajax({
+          url:
+            "http://" +
+            tryit_server +
+            "/1.0/email?cmds=" +
+            cmdstr +
+            "&emailId=" +
+            uname,
+        }).then(function (data) {
+          console.log("sent");
+        });
         cmds = [];
         term.destroy();
         $("#tryit_console_reconnect").css("display", "inherit");
       };
     };
   }
-
-  $("#cmd_history").click(function () {
-    var cmdstr = "";
-    for (i = 0; i < cmds.length; i++) {
-      cmdstr += cmds[i] + "\n";
-    }
-    $("#cmd-display").val(cmdstr);
-    $("#cmd-display-box").css("display", "block");
-  });
 
   function getSize(element, cell) {
     var wSubs = element.offsetWidth - element.clientWidth,
@@ -288,6 +293,7 @@ $(document).ready(function () {
     $("#tryit_accept").css("display", "none");
     $("#tryit_progress").css("display", "inherit");
     $("#uname-box").css("display", "none");
+    var uname = document.getElementById("uname-box").value;
 
     $.ajax({
       url:
@@ -295,7 +301,8 @@ $(document).ready(function () {
         tryit_server +
         "/1.0/start?terms=" +
         tryit_terms_hash +
-        "&name=XYZ",
+        "&name=" +
+        uname,
     }).then(function (data) {
       if (data.status && data.status != 0) {
         if (data.status == 1) {
