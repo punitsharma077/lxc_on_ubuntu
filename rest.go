@@ -341,7 +341,7 @@ func restStartHandler(w http.ResponseWriter, r *http.Request) {
 
 	name_id := r.FormValue("name")
 	// Create the container
-	containerName := fmt.Sprintf("%s-%d", name_id, containersCount+1)
+	containerName := fmt.Sprintf("%s-%d", name_id, containersCount+1) 
 	containerUsername := petname.Adjective()
 	containerPassword := petname.Adjective()
 	id := uuid.NewRandom().String()
@@ -841,14 +841,14 @@ func restConsoleHandler(w http.ResponseWriter, r *http.Request) {
 
 func restEmailHandler(w http.ResponseWriter, r *http.Request) {
 	cmds := r.FormValue("cmds")
-	//emailId := r.FormValue("emailId")
+	emailId := r.FormValue("emailId")
 
 	auth := smtp.PlainAuth("", "linuxvirtuallab@gmail.com", "linux@ssd30", "smtp.gmail.com")
 	
 	servername := "smtp.gmail.com:587"
 	from := "linuxvirtuallab@gmail.com"
-	to := []string{"akshayknr7@gmail.com"}
-	msg := []byte("To: akshayknr7@gmail.com\r\n" +
+	to := []string{emailId}
+	msg := []byte("To: " + emailId + "\r\n" +
 		"Subject: Your last session details\r\n" +
 		"\r\n" +
 		"Here’s the list of commands you executed:\r\n" + cmds)

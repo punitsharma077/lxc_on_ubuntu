@@ -70,6 +70,12 @@ $(document).ready(function () {
     var timeinterval = setInterval(updateClock, 1000);
   }
 
+  function checkEmail(emailAddress) {
+    var reg = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+
+    return reg.test(emailAddress);
+  }
+
   function setupConsole(id) {
     var element = document.getElementById("tryit_console");
     var cell = createCell(element);
@@ -124,7 +130,7 @@ $(document).ready(function () {
       };
 
       sock.onclose = function (msg) {
-        var uname = document.getElementById("uname-box").value;
+        var email = document.getElementById("email").value;
         var cmdstr = "";
         for (i = 0; i < cmds.length; i++) {
           cmdstr += cmds[i] + "%0A";
@@ -136,7 +142,7 @@ $(document).ready(function () {
             "/1.0/email?cmds=" +
             cmdstr +
             "&emailId=" +
-            uname,
+            email,
         }).then(function (data) {
           console.log("sent");
         });
@@ -289,10 +295,16 @@ $(document).ready(function () {
   }
 
   $("#tryit_accept").click(function () {
+    if (checkEmail(document.getElementById("email").value) == false) {
+      $("#email-error").css("display", "block");
+      return;
+    }
+
     $("#tryit_terms_panel").css("display", "none");
     $("#tryit_accept").css("display", "none");
     $("#tryit_progress").css("display", "inherit");
     $("#uname-box").css("display", "none");
+    $("#email-error").css("display", "none");
     var uname = document.getElementById("uname-box").value;
 
     $.ajax({
