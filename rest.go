@@ -8,6 +8,8 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+	"log"
+	"net/smtp"
 
 	"github.com/dustinkirkland/golang-petname"
 	"github.com/gorilla/websocket"
@@ -261,7 +263,7 @@ func restTermsHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not implemented", 501)
 		return
 	}
-
+	
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Content-Type", "application/json")
 
@@ -295,7 +297,7 @@ func restStartHandler(w http.ResponseWriter, r *http.Request) {
 		restStartError(w, err, containerUnknownError)
 		return
 	}
-	name_id := r.FormValue("name")
+	
 	// Check Terms of Service
 	requestTerms := r.FormValue("terms")
 	if requestTerms == "" {
@@ -337,8 +339,9 @@ func restStartHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	name_id := r.FormValue("name")
 	// Create the container
-	containerName := fmt.Sprintf("%s", name_id)
+	containerName := fmt.Sprintf("%s-%d", name_id, containersCount+1)
 	containerUsername := petname.Adjective()
 	containerPassword := petname.Adjective()
 	id := uuid.NewRandom().String()
@@ -828,10 +831,32 @@ func restConsoleHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Internal server error", 500)
 		return
 	}
-
+ 
 	<-execArgs.DataDone
 
 	inWrite.Close()
 	outRead.Close()
 
+}
+
+func restEmailHandler(w http.ResponseWriter, r *http.Request) {
+	cmds := r.FormValue("cmds")
+	//emailId := r.FormValue("emailId")
+
+	auth := smtp.PlainAuth("", "linuxvirtuallab@gmail.com", "linux@ssd30", "smtp.gmail.com")
+	
+	servername := "smtp.gmail.com:587"
+	from := "linuxvirtuallab@gmail.com"
+	to := []string{"akshayknr7@gmail.com"}
+	msg := []byte("To: akshayknr7@gmail.com\r\n" +
+		"Subject: Your last session details\r\n" +
+		"\r\n" +
+		"Here’s the list of commands you executed:\r\n" + cmds)
+		
+	err := smtp.SendMail(servername, auth, from, to, msg)
+	if err != nil {
+		log.Printf("smtp error: %s", err)
+	}
+
+	return
 }
