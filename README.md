@@ -60,16 +60,17 @@ go build
 ### Setting up the configuration file
 To run your own, you should first set the configurations in the `lxd-demo.yaml` file.
 Some parameters are:
-`image` : To specify which Ubuntu Image will be used to create LXCs.
-`command` : To specify that terminal needs to be run on creation.
-`profiles` : Can specify the profiles to be used for the LXCs.
-`quota_cpu` : To specify number of cores allotted per LXC.
-`quota_processes` : To specify maximum numbers of processes that can be spawned.
-`quota_ram` : To specify amount of RAM allocated per LXC.
-`quota_sessions` : Number of concurrent sessions allowed per user.
-`quota_time` : Time before the LXC expires, in seconds.
-`server_containers_max` : Maximum number of LXCs that can be run at a time.
-
+```
+image : To specify which Ubuntu Image will be used to create LXCs.
+command : To specify that terminal needs to be run on creation.
+profiles : Can specify the profiles to be used for the LXCs.
+quota_cpu : To specify number of cores allotted per LXC.
+quota_processes : To specify maximum numbers of processes that can be spawned.
+quota_ram : To specify amount of RAM allocated per LXC.
+quota_sessions : Number of concurrent sessions allowed per user.
+quota_time : Time before the LXC expires, in seconds.
+server_containers_max : Maximum number of LXCs that can be run at a time.
+```
 Change these values as per the need.
 After changing run:
 ```
