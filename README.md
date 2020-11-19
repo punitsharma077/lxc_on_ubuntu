@@ -51,7 +51,7 @@ go get github.com/punitsharma077/lxc_on_ubuntu
 
 To build it run:
 ```
-cd go/src/github.com/punitsharma077
+cd go/src/github.com/punitsharma077/lxc_on_ubuntu
 go build
 ```
 
